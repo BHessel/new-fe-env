@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Registration = () => {
 
@@ -15,14 +16,12 @@ const Registration = () => {
     }
 
     const handleChange = (e) => {
-        console.log('handleChange', e)
+        // console.log('handleChange', e)
         setState({
             [e.target.name]: e.target.value
         })
     }
-    console.log('email:', state.email)
-    console.log('password:', state.password)
-    console.log('password_confirmation:', state.password_confirmation)
+    
     
     return (
         <div>
