@@ -2,13 +2,14 @@ import React from 'react';
 import Registration from './auth/Registration';
 import { useNavigate } from 'react-router-dom'
 
-const Home = ({ loggedInStatus }) => {
+const Home = ({ loggedInStatus, handleLogin }) => {
 
     let navigate = useNavigate()
 
     const handleSuccessfulAuth = (data) => {
         //update parent component
         console.log(data)
+        handleLogin(data)
         navigate('/dashboard')
     }
 

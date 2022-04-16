@@ -12,6 +12,10 @@ function App() {
   const [user, setUser] = useState({});
   const [loggedInStatus, setLoggedInStatus] = useState('not logged in');
 
+  const handleLogin = (data) => {
+    setLoggedInStatus('logged in')
+    setUser(data.user)
+  }
 
   return (
     <div className="App">
@@ -22,6 +26,7 @@ function App() {
           element={
             <Home
               loggedInStatus={loggedInStatus}
+              handleLogin={handleLogin}
             />
           }
         />
