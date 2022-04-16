@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Registration = () => {
+const Registration = ({ handleSuccessfulAuth }) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [password_confirmation, setPassword_Confirmation] = useState('')
+    const [registrationError, setRegistrationError] = useState('');
 
     const handleSubmit = (e) => {
         // console.log('form submitted')
@@ -18,7 +19,12 @@ const Registration = () => {
             }},
             { withCredentails: true }
         )
-        .then(response => {console.log("registration resp" , response)})
+        .then(response => {
+            // console.log('reg response', response)
+            if (response.data.status === 'created') {
+                handleSuccessfulAuth(response.data)
+            }
+        })
         .catch(error => {console.log("registration error", error)}) 
         e.preventDefault()
     }

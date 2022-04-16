@@ -20,14 +20,19 @@ function App() {
         <Route
           path={"/"}
           element={
-            <Home 
+            <Home
               loggedInStatus={loggedInStatus}
-            />}
+            />
+          }
         />
 
         <Route
           path={"/dashboard"}
-          element={<Dashboard />}
+          element={
+            <Dashboard
+              loggedInStatus={loggedInStatus}
+            />
+          }
         />
 
       </Routes>
