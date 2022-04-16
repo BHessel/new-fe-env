@@ -3,23 +3,36 @@ import axios from 'axios';
 
 const Registration = () => {
 
-    //set state this way to dynamically handle the onChange event
-    const [state, setState] = useState({
-        email: "",
-        password: "",
-        password_confirmation: ""
-    })
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [password_confirmation, setPassword_Confirmation] = useState('')
 
     const handleSubmit = (e) => {
-        console.log('form submitted')
+        // console.log('form submitted')
+
+        axios.post("http://localhost:3000/registrations", {
+            user: {
+                email: email,
+                password: password,
+                password_confirmation: password_confirmation
+            }},
+            { withCredentails: true }
+        )
+        .then(response => {console.log("registration resp" , response)})
+        .catch(error => {console.log("registration error", error)}) 
         e.preventDefault()
     }
 
-    const handleChange = (e) => {
-        // console.log('handleChange', e)
-        setState({
-            [e.target.name]: e.target.value
-        })
+    const handleEmail = (e) => {
+        setEmail(e.target.value)
+    }
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value)
+    }
+
+    const handlePasswordConfirmation = (e) => {
+        setPassword_Confirmation(e.target.value)
     }
     
     
@@ -30,8 +43,8 @@ const Registration = () => {
                     type="email"
                     name="email"
                     placeholder='Email'
-                    value={state.email}
-                    onChange={handleChange}
+                    value={email}
+                    onChange={handleEmail}
                     required
                 />
 
@@ -39,8 +52,8 @@ const Registration = () => {
                     type="password"
                     name="password"
                     placeholder='Password'
-                    value={state.password}
-                    onChange={handleChange}
+                    value={password}
+                    onChange={handlePassword}
                     required
                 />
 
@@ -48,8 +61,8 @@ const Registration = () => {
                     type="password"
                     name="password_confirmation"
                     placeholder='Password Confirmation'
-                    value={state.password_confirmation}
-                    onChange={handleChange}
+                    value={password_confirmation}
+                    onChange={handlePasswordConfirmation}
                     required
                 />
 
