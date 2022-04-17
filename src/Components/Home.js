@@ -1,5 +1,6 @@
 import React from 'react';
 import Registration from './auth/Registration';
+import Login from './auth/Login'
 import { useNavigate } from 'react-router-dom'
 
 const Home = ({ loggedInStatus, handleLogin }) => {
@@ -19,6 +20,7 @@ const Home = ({ loggedInStatus, handleLogin }) => {
             <Registration 
                 handleSuccessfulAuth={handleSuccessfulAuth}    
             />
+            <Login />
         </div>
     );
 }
