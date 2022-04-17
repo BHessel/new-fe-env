@@ -6,7 +6,7 @@ const Registration = ({ handleSuccessfulAuth }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [password_confirmation, setPassword_Confirmation] = useState('')
-    const [registrationError, setRegistrationError] = useState('');
+    // const [registrationError, setRegistrationError] = useState('');
 
     const handleSubmit = (e) => {
         // console.log('form submitted')
@@ -18,9 +18,7 @@ const Registration = ({ handleSuccessfulAuth }) => {
                 password_confirmation: password_confirmation
             }},
             { withCredentails: true }
-        )
-        .then(response => {
-            // console.log('reg response', response)
+        ).then(response => {
             if (response.data.status === 'created') {
                 handleSuccessfulAuth(response.data)
             }
@@ -30,6 +28,7 @@ const Registration = ({ handleSuccessfulAuth }) => {
     }
 
     const handleEmail = (e) => {
+        console.log(e)
         setEmail(e.target.value)
     }
 

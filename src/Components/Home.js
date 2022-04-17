@@ -7,8 +7,7 @@ const Home = ({ loggedInStatus, handleLogin }) => {
     let navigate = useNavigate()
 
     const handleSuccessfulAuth = (data) => {
-        //update parent component
-        console.log(data)
+        // console.log(data)
         handleLogin(data)
         navigate('/dashboard')
     }
