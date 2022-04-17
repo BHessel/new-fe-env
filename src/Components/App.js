@@ -12,10 +12,16 @@ function App() {
 
   const [user, setUser] = useState({});
   const [loggedInStatus, setLoggedInStatus] = useState('not_logged_in');
+  const [logout, setLogout] = useState('');
 
   const handleLogin = (data) => {
     setLoggedInStatus('logged_in')
     setUser(data.user)
+  }
+
+  const handleLogout = () => {
+    setLoggedInStatus('not_logged_in')
+    setUser({})
   }
 
   const checkLoginStatus = () => {
@@ -40,6 +46,7 @@ function App() {
     checkLoginStatus()
   }, [])
 
+
   return (
     <div className="App">
       <Routes>
@@ -50,6 +57,7 @@ function App() {
             <Home
               loggedInStatus={loggedInStatus}
               handleLogin={handleLogin}
+              handleLogout={handleLogout}
             />
           }
         />
