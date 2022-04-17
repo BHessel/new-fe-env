@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Login = () => {
+const Login = ({ handleSuccessfulAuth }) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -27,9 +27,9 @@ const Login = () => {
             { withCredentails: true }
         ).then(response => {
             console.log('res from login', response)
-            // if (response.data.status === 'created') {
-            //     handleSuccessfulAuth(response.data)
-            // }
+            if (response.data.logged_in) {
+                handleSuccessfulAuth(response.data)
+            }
         })
         .catch(error => {console.log("login errors", error)}) 
         e.preventDefault()
