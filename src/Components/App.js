@@ -30,6 +30,7 @@ function App() {
         { withCredentials: true })
         .then(response => {
           console.log('logged in?:', response)
+          console.log('logged in STATE', loggedInStatus)
           if (response.data.logged_in && loggedInStatus === 'not_logged_in') {
             setLoggedInStatus('logged_in')
             setUser(response.data.user)

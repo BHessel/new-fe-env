@@ -30,7 +30,7 @@ const Login = ({ handleSuccessfulAuth }) => {
         { withCredentails: true }
       )
       .then((response) => {
-        // console.log("res from login", response);
+        console.log("res from login", response);
         // console.log("res from login.status", response.status);
         // console.log("res from login.data", response.data);
 
