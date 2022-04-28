@@ -8,7 +8,7 @@ import Home from './Home'
 import Dashboard from './Dashboard'
 import axios from 'axios';
 
-function App() {
+const App = () => {
 
   const [user, setUser] = useState({})
   const [loggedInStatus, setLoggedInStatus] = useState('not_logged_in')
@@ -48,13 +48,6 @@ function App() {
     }
   }, [])
 
-  // useEffect(() => {
-  //   effect
-  //   return () => {
-  //     cleanup
-  //   };
-  // }, [input]);
-
 
   return (
     <div className="App">
@@ -75,6 +68,7 @@ function App() {
           path={"/dashboard"}
           element={
             <Dashboard
+              // props={props}
               loggedInStatus={loggedInStatus}
             />
           }

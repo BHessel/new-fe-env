@@ -17,7 +17,7 @@ const Registration = ({ handleSuccessfulAuth }) => {
                 password: password,
                 password_confirmation: password_confirmation
             }},
-            { withCredentails: true }
+            { withCredentials: true }
         ).then(response => {
             if (response.data.status === 'created') {
                 handleSuccessfulAuth(response.data)

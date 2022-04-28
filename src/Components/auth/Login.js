@@ -25,16 +25,16 @@ const Login = ({ handleSuccessfulAuth }) => {
           user: {
             email: email,
             password: password,
-          },
+          }
         },
-        { withCredentails: true }
+        { withCredentials: true }
       )
       .then((response) => {
         console.log("res from login", response);
         // console.log("res from login.status", response.status);
         // console.log("res from login.data", response.data);
 
-        if (response.data.logged_in === true) {
+        if (response.data.logged_in) {
             handleSuccessfulAuth(response.data)
         }
       })
