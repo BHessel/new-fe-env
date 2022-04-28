@@ -6,11 +6,9 @@ const Registration = ({ handleSuccessfulAuth }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [password_confirmation, setPassword_Confirmation] = useState('')
-    // const [registrationError, setRegistrationError] = useState('');
 
     const handleSubmit = (e) => {
         // console.log('form submitted')
-
         axios.post("http://localhost:3000/registrations", {
             user: {
                 email: email,
